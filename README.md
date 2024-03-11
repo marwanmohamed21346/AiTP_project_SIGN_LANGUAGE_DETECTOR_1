@@ -30,10 +30,10 @@ Project goals:
 
 team members:
 -------------
-Marwan Mohamed
-Youssef Ahmed
-Mariam Ibrahim
-Mariam Aid
+Marwan Mohamed /
+Youssef Ahmed /
+Mariam Ibrahim /
+Mariam Aid /
 Mariam Rizk
 
 supervisors:
