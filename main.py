@@ -31,4 +31,5 @@ while True:
     cv2.imshow("handtracker" ,frame)
     if cv2.waitKey(1) & 0xff == 27:
         break
-    
+cam.release()
+cv2.destroyAllWindows()
