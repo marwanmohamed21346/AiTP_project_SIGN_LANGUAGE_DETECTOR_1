@@ -4,8 +4,8 @@ import numpy as np
 print("pakage imported....")
 
 cam = cv2.VideoCapture(0)
-wedith = cam.set(3,3840) # 3 is id for wedith
-height = cam.set(4,2160) # 4 is id for height
+wedith = cam.set(3,700) # 3 is id for wedith
+height = cam.set(4,480) # 4 is id for height
 
 mpHands = mp.solutions.hands
 hands = mpHands.Hands()
