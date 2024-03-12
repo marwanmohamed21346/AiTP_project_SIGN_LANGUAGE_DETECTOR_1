@@ -37,7 +37,8 @@ Marwan Mohamed /
 Youssef Ahmed /
 Mariam Ibrahim /
 Mariam Aid /
-Mariam Rizk
+Mariam Rizk /
+Mazen Mohamed
 
 supervisors:
 ------------
