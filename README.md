@@ -38,12 +38,13 @@ Youssef Ahmed /
 Mariam Ibrahim /
 Mariam Eid /
 Mariam Rizk /
-Mazen Mohamed
+Mazen Mohamed / 
+Haneen Mohamed
 
 supervisors:
 ------------
-Dr/ Osama El Nahas
-Dr/ Hesham Ali
+Dr/ Osama El Nahas 
+Dr/ Hesham Ali 
 Dr/ Nehal El Azali
 
 
