@@ -36,7 +36,7 @@ team members:
 Marwan Mohamed /
 Youssef Ahmed /
 Mariam Ibrahim /
-Mariam Aid /
+Mariam Eid /
 Mariam Rizk /
 Mazen Mohamed
 
