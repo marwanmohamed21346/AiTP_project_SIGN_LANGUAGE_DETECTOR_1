@@ -1,6 +1,7 @@
 import cv2
 import mediapipe as mp
 import numpy as np
+import torch
 print("pakage imported....")
 
 cam = cv2.VideoCapture(0)
