@@ -1,4 +1,3 @@
-# cheaker 1
 import torch
 
 dtype = torch.float

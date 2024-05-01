@@ -1,17 +1,16 @@
-# this nn model don't work with oldest pthon version
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-class Net(nn.Module):
+class Net(torch.nn.Module):
     def __init__(self):
         super(Net, self).__init__()
 
-        self.conv1 = nn.Conv2d(1, 80, kernel_size = 5)
-        self.conv2 = nn.Conv2d(80, 80, kernel_size = 5)
+        self.conv1 = nn.Conv2d(1, 80, kernel_size=5)
+        self.conv2 = nn.Conv2d(80, 80, kernel_size=5)
 
-        self.pool1 = nn.MaxPool2d(kernel_size = 2, stride = 2, padding = 0)
-        self.pool2 = nn.MaxPool2d(kernel_size = 2, stride = 2, padding = 0)
+        self.pool1 = nn.MaxPool2d(kernel_size=2, stride=2, padding=0)
+        self.pool2 = nn.MaxPool2d(kernel_size=2, stride=2, padding=0)
 
         self.batch_norm1 = nn.BatchNorm2d(80)
         self.batch_norm2 = nn.BatchNorm2d(80)
@@ -20,7 +19,6 @@ class Net(nn.Module):
         self.fc2 = nn.Linear(250, 25)
 
     def forward(self, x):
-
         x = self.conv1(x)
         x = self.batch_norm1(x)
         x = F.relu(x)
