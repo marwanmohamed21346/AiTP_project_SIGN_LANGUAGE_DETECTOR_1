@@ -2,10 +2,12 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-class Net(torch.nn.Module):
-    def __init__(self):
-        super(Net, self).__init__()
 
+class Network(nn.Module):
+    def __init__(self):
+        super(Network, self).__init__()
+
+        # Define the layers of your neural network
         self.conv1 = nn.Conv2d(1, 80, kernel_size=5)
         self.conv2 = nn.Conv2d(80, 80, kernel_size=5)
 
@@ -19,6 +21,7 @@ class Net(torch.nn.Module):
         self.fc2 = nn.Linear(250, 25)
 
     def forward(self, x):
+        # Define the forward pass of your neural network
         x = self.conv1(x)
         x = self.batch_norm1(x)
         x = F.relu(x)
