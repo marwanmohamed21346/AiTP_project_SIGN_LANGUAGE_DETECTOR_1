@@ -14,5 +14,5 @@ ScrollReveal({
 });
 
 ScrollReveal().reveal('.name', { delay: 250, origin: 'left', interval: 200});
-ScrollReveal().reveal('.right', { delay: 250, origin: 'right'});
-ScrollReveal().reveal('.top', { delay: 250, origin: 'top', interval: 100});
+ScrollReveal().reveal('.right', { delay: 250, origin: 'right', interval: 150});
+ScrollReveal().reveal('.top', { delay: 250, origin: 'top', interval: 150});
