@@ -1,0 +1,21 @@
+// components
+@use './components/cord';
+@use '../sass/components/buttons';
+// helpers
+@use '../sass/helpers/variable';
+@use '../sass/helpers/anim';
+// layout
+@use '../sass/layout/header';
+@use '../sass/layout/footer';
+// pages
+
+@use '../sass/pages/home';
+
+
+
+body {
+    height: 100vh;
+    width: 100%;
+    font-family: sans-serif;
+
+}
