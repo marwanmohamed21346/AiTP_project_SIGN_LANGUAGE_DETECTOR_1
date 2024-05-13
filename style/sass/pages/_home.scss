@@ -1,0 +1,61 @@
+.home {
+    width: 100%;
+    height: 100vh;
+    background-color: #c5def4;
+    nav {
+
+        ul {
+            list-style: none;
+            li {
+                a {
+                    font-family: sans-serif;
+                    color: rgb(50, 78, 150);
+                    font-weight: 600;
+                }
+            }
+        }
+    
+    }
+    .row {
+        height: 100%;
+
+        h2 {
+            font-size: 31px;
+            color: rgb(50, 78, 150);
+            font-weight: bold;
+        }
+        span{
+            color: black;
+            font-family: cursive;
+        }
+    }
+
+    .compon {
+
+        .col-6 {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .con {
+            background-color: rgb(50, 78, 150);
+            padding: 20px;
+            border-radius: 20px;
+            width: 7rem;
+            margin-top: 1rem;
+        }
+
+        h3 {
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+    }
+
+    .con-video {
+        background-color: black;
+        width: 100%;
+        height: 100%;
+    }
+}

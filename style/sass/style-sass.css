@@ -1,0 +1,53 @@
+.home {
+  width: 100%;
+  height: 100vh;
+  background-color: #c5def4;
+}
+.home nav ul {
+  list-style: none;
+}
+.home nav ul li a {
+  font-family: sans-serif;
+  color: rgb(50, 78, 150);
+  font-weight: 600;
+}
+.home .row {
+  height: 100%;
+}
+.home .row h2 {
+  font-size: 31px;
+  color: rgb(50, 78, 150);
+  font-weight: bold;
+}
+.home .row span {
+  color: black;
+  font-family: cursive;
+}
+.home .compon .col-6 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.home .compon .con {
+  background-color: rgb(50, 78, 150);
+  padding: 20px;
+  border-radius: 20px;
+  width: 7rem;
+  margin-top: 1rem;
+}
+.home .compon h3 {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+.home .con-video {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  font-family: sans-serif;
+}/*# sourceMappingURL=style-sass.css.map */
