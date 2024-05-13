@@ -2,7 +2,7 @@ import cv2
 import mediapipe as mp
 import numpy as np
 import torch
-import os
+import pyttsx3, time
 from model import Network
 print("Packages imported....")
 
@@ -15,8 +15,8 @@ except Exception as e:
     print("Error loading model:", e)
 
 cam = cv2.VideoCapture(0)
-cam.set(3, 1920)  # Setting width
-cam.set(4, 1080)  # Setting height
+cam.set(3, 700)  # Setting width
+cam.set(4, 4800)  # Setting height
 
 mpHands = mp.solutions.hands
 hands = mpHands.Hands()
@@ -53,7 +53,7 @@ while True:
             font = cv2.FONT_HERSHEY_SIMPLEX
             frame = cv2.putText(frame, sign, (50, 50), font, 1, (255, 0, 0), 2, cv2.LINE_AA)
 
-    cv2.imshow("Sign Language Detector", frame)
+    cv2.imshow("Sign Language Detector v73.1", frame)
     if cv2.waitKey(1) & 0xff == 27:
         break
 
