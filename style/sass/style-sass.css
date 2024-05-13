@@ -2,6 +2,7 @@
   width: 100%;
   height: 100vh;
   background-color: #c5def4;
+  overflow-x: hidden;
 }
 .home nav ul {
   list-style: none;
