@@ -12,6 +12,9 @@ pip install autocomplete
 mediapipe:
 pip install mediapipe
 
+pytorch:
+pip install pytorch
+
 note: mediapipe only works in python 3.8.10
 
 <img width="1073" alt="hand-landmarks" src="https://github.com/marwanmohamed21346/AiTP_project_SIGN_LANGUAGE_DETECTOR_1/assets/138812463/1e716608-0705-4d27-893b-14bffdb42452">
