@@ -2,7 +2,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-
 class Network(nn.Module):
     def __init__(self):
         super(Network, self).__init__()
@@ -39,3 +38,14 @@ class Network(nn.Module):
         x = F.log_softmax(x, dim=1)
 
         return x
+
+def load_model(model_path):
+    # Load the pre-trained model
+    try:
+        model = Network()  # Instantiate the model
+        model.load_state_dict(torch.load(model_path, map_location=torch.device("cuda" if torch.cuda.is_available() else "cpu")))
+        model.eval()  # Set the model to evaluation mode
+        print("Model loaded successfully")
+        return model
+    except Exception as e:
+        print("Error loading model:", e)

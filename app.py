@@ -53,7 +53,7 @@ while True:
             font = cv2.FONT_HERSHEY_SIMPLEX
             frame = cv2.putText(frame, sign, (50, 50), font, 1, (255, 0, 0), 2, cv2.LINE_AA)
 
-    cv2.imshow("Sign Language Detector", frame)
+    cv2.imshow("AiTP", frame)
     if cv2.waitKey(1) & 0xff == 27:
         break
 
