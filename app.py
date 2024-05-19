@@ -53,15 +53,15 @@
 #             font = cv2.FONT_HERSHEY_SIMPLEX
 #             frame = cv2.putText(frame, sign, (50, 50), font, 1, (255, 0, 0), 2, cv2.LINE_AA)
 
-<<<<<<< HEAD
+# <<<<<<< HEAD
 #     cv2.imshow("Sign Language Detector", frame)
 #     if cv2.waitKey(1) & 0xff == 27:
 #         break
-=======
-    cv2.imshow("AiTP", frame)
-    if cv2.waitKey(1) & 0xff == 27:
-        break
->>>>>>> 0fae36616d7156c984d7982e3825376f37e74bdd
+# =======
+    # cv2.imshow("AiTP", frame)
+    # if cv2.waitKey(1) & 0xff == 27:
+        # break
+# >>>>>>> 0fae36616d7156c984d7982e3825376f37e74bdd
 
 # cam.release()
 # cv2.destroyAllWindows()

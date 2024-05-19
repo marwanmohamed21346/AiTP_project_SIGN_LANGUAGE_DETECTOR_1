@@ -4,9 +4,13 @@ import torch.nn.functional as F
 
 class Net(nn.Module):
     def __init__(self):
+<<<<<<< HEAD
         super(Net, self).__init__()
 
         # Define the first convolutional layer: 1 input channel, 80 output channels, 5x5 kernel
+=======
+        super(Network, self).__init__()
+>>>>>>> 84a773764e5164adb72bfeef409122b5353c63d8
         self.conv1 = nn.Conv2d(1, 80, kernel_size=5)
         
         # Define the second convolutional layer: 80 input channels, 80 output channels, 5x5 kernel
@@ -31,7 +35,10 @@ class Net(nn.Module):
         self.fc2 = nn.Linear(250, 25)
 
     def forward(self, x):
+<<<<<<< HEAD
         # First convolutional layer followed by batch normalization, ReLU activation, and max-pooling
+=======
+>>>>>>> 84a773764e5164adb72bfeef409122b5353c63d8
         x = self.conv1(x)
         x = self.batch_norm1(x)
         x = F.relu(x)
@@ -57,6 +64,7 @@ class Net(nn.Module):
         
         return x
 
+<<<<<<< HEAD
 def save_model(model, model_path):
     try:
         torch.save(model.state_dict(), model_path)
@@ -78,11 +86,19 @@ def load_model(model_path):
         # Set the model to evaluation mode
         model.eval()
         
+=======
+def load_model(model_path):
+    try:
+        model = Network()   
+        model.load_state_dict(torch.load(model_path, map_location=torch.device("cuda" if torch.cuda.is_available() else "cpu")))
+        model.eval() 
+>>>>>>> 84a773764e5164adb72bfeef409122b5353c63d8
         print("Model loaded successfully")
         return model
     except Exception as e:
         print("Error loading model:", e)
 
+<<<<<<< HEAD
 # Example usage:
 if __name__ == "__main__":
     # Create an instance of the model
@@ -96,3 +112,5 @@ if __name__ == "__main__":
     
     # Load the model
     loaded_model = load_model(model_path)
+=======
+>>>>>>> 84a773764e5164adb72bfeef409122b5353c63d8
