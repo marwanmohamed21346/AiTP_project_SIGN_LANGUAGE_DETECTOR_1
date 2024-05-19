@@ -1,49 +1,90 @@
-try:
-    import cv2
-    import mediapipe as mp
-    import torch
-    import pyttsx3
-    import numpy as np
-    from model import Net
-    from model import load_model
-    print("Packages imported...")
-except Exception as e:
-    print("error loading packages:",e)
+import cv2
+import mediapipe as mp
+import torch
+import pyttsx3
+import numpy as np
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
 
+# Define the neural network model
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
 
+        self.conv1 = nn.Conv2d(1, 80, kernel_size=5)
+        self.conv2 = nn.Conv2d(80, 80, kernel_size=5)
+        self.pool1 = nn.MaxPool2d(kernel_size=2, stride=2, padding=0)
+        self.pool2 = nn.MaxPool2d(kernel_size=2, stride=2, padding=0)
+        self.batch_norm1 = nn.BatchNorm2d(80)
+        self.batch_norm2 = nn.BatchNorm2d(80)
+        self.fc1 = nn.Linear(1280, 250)
+        self.fc2 = nn.Linear(250, 25)
+
+    def forward(self, x):
+        x = self.conv1(x)
+        x = self.batch_norm1(x)
+        x = F.relu(x)
+        x = self.pool1(x)
+        
+        x = self.conv2(x)
+        x = self.batch_norm2(x)
+        x = F.relu(x)
+        x = self.pool2(x)
+        
+        x = x.view(x.size(0), -1)
+        
+        x = F.relu(self.fc1(x))
+        x = self.fc2(x)
+        
+        x = F.log_softmax(x, dim=1)
+        
+        return x
+
+# Function to load the model
+def load_model(model_path):
+    model = Net()
+    state_dict = torch.load(model_path, map_location=torch.device("cuda" if torch.cuda.is_available() else "cpu"))
+    model.load_state_dict(state_dict)
+    model.eval()
+    return model
+
+print("Packages imported...")
+
+# Load the trained model
 try:
     model_path = "AITP_Training_code.pt"
-    model = Net()
-    model.load_state_dict(torch.load(model_path, map_location=torch.device("cuda" if torch.cuda.is_available() else "cpu")))
-    model.eval()
+    model = load_model(model_path)
     print("Model loaded successfully")
 except Exception as e:
     print("Error loading model:", e)
 
-
+# Initialize webcam
 cam = cv2.VideoCapture(0)
 cam.set(3, 1280)  # Set width
 cam.set(4, 720)  # Set height
 
-
+# Initialize MediaPipe hands solution
 mpHands = mp.solutions.hands
 hands = mpHands.Hands()
 mpdraw = mp.solutions.drawing_utils
 
-
+# Dictionary for sign language translation
 signs = {
     '0': 'A', '1': 'B', '2': 'C', '3': 'D', '4': 'E', '5': 'F', '6': 'G', '7': 'H', '8': 'I',
     '10': 'K', '11': 'L', '12': 'M', '13': 'N', '14': 'O', '15': 'P', '16': 'Q', '17': 'R',
     '18': 'S', '19': 'T', '20': 'U', '21': 'V', '22': 'W', '23': 'X', '24': 'Y'
 }
 
-
+# Function to transform image for model input
 def Transform(image):
     image = image / 255.0
     image = np.expand_dims(image, axis=0)
     image = np.expand_dims(image, axis=0)
     return torch.from_numpy(image).float()
 
+# Text-to-speech engine
+engine = pyttsx3.init()
 
 while True:
     ret, frame = cam.read()
@@ -59,6 +100,7 @@ while True:
         for handLMs in hand_landmarks:
             mpdraw.draw_landmarks(frame, handLMs, mpHands.HAND_CONNECTIONS)
 
+        # Determine bounding box for the detected hands
         if len(hand_landmarks) == 2:
             x_max, y_max = 0, 0
             x_min, y_min = w, h
@@ -89,20 +131,22 @@ while True:
                 prediction = model(image)
             prediction = torch.nn.functional.softmax(prediction, dim=1)
             i = prediction.argmax(dim=-1).cpu()
-            label = signs[str(i.item())]
+            label = signs.get(str(i.item()), 'No Sign')
         except Exception as e:
             label = 'No Sign'
 
+        # Draw bounding box and label on the frame
         cv2.rectangle(frame, (x_min, y_min), (x_max, y_max), (0, 255, 0), 2)
         cv2.putText(frame, label, (x_min, y_min - 10), cv2.FONT_HERSHEY_COMPLEX, 0.5, (0, 255, 0), 1)
         
+        # Text-to-speech for the detected sign
         if label != 'No Sign':
-            engine = pyttsx3.init()
             engine.say(label)
             engine.runAndWait()
 
+    # Display the output frame
     cv2.imshow("Output", frame)
-    if cv2.waitKey(1) & 0xff == 27:
+    if cv2.waitKey(1) & 0xff == 27:  # Press 'ESC' to exit
         break
 
 cam.release()

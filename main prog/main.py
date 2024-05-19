@@ -6,14 +6,16 @@ try:
     import numpy as np
     from model import Net
     from model import load_model
+    import __main__
     print("Packages imported...")
 except Exception as e:
     print("error loading packages:",e)
 
 
 try:
-    model_path = "AITP_Training_code.pt"
+    model_path = "model_trained.pt"
     model = Net()
+    setattr(__main__, "Net", Net)
     model.load_state_dict(torch.load(model_path, map_location=torch.device("cuda" if torch.cuda.is_available() else "cpu")))
     model.eval()
     print("Model loaded successfully")
