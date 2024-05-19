@@ -15,7 +15,6 @@ try:
     model_path = "AITP_Training_code.pt"
     model = load_model(model_path)
     print(model.eval())
-
     print("Model loaded successfully")
 except Exception as e:
     print("Error loading model:", e)
@@ -90,8 +89,9 @@ while True:
                 prediction = model(image)
             prediction = torch.nn.functional.softmax(prediction, dim=1)
             i = prediction.argmax(dim=-1).cpu()
-            print(i)
+            print(i.item())
             label = signs[str(i.item())]
+            # print(label)
         except Exception as e:
             label = 'No Sign'
 

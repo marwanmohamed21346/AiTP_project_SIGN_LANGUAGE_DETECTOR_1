@@ -3,26 +3,24 @@ import mediapipe as mp
 import torch
 import numpy as np
 import pyttsx3
-from model import Network
-import time
+from model import Network, load_model
 import threading
 from queue import Queue
 
 print("Packages imported...")
 
 try:
-    model_path = "AITP_Training_code.pt"
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = Network().to(device)
-    model.load_state_dict(torch.load(model_path, map_location=device))
+    model_path = "Jo_elMofaker.pt"
+    model = load_model(model_path)
+    print(model)
     model.eval()
     print("Model loaded successfully")
 except Exception as e:
     print("Error loading model:", e)
 
-cam = cv2.VideoCapture(0)
-cam.set(3, 320)  # خفض دقة العرض
-cam.set(4, 240)  # خفض دقة الارتفاع
+# cam = cv2.VideoCapture(0)
+# cam.set(3, 720)  # خفض دقة العرض
+# cam.set(4, 480)  # خفض دقة الارتفاع
 
 mpHands = mp.solutions.hands
 hands = mpHands.Hands(max_num_hands=1)  # تقليل عدد الأيدي المعالجة
@@ -35,6 +33,7 @@ signs = {
 }
 
 def Transform(image):
+    device = torch.device('cuda:0')
     image = image / 255.0
     image = np.expand_dims(image, axis=0)
     image = np.expand_dims(image, axis=0)
@@ -48,7 +47,10 @@ engine = pyttsx3.init()
 
 def capture_frames():
     while True:
-        ret, frame = cam.read()
+        # ret, frame = cam.read()
+        frame = cv2.imread('./images/received_frame.jpg')
+        print(frame)
+        ret = True
         if not ret:
             break
         frame_queue.put(frame)
@@ -89,7 +91,9 @@ def process_frames():
                     prediction = model(image)
                 prediction = torch.nn.functional.softmax(prediction, dim=1)
                 i = prediction.argmax(dim=-1).cpu()
+                print(i)
                 label = signs[str(i.item())]
+
             except Exception as e:
                 label = 'No Sign'
 
