@@ -4,9 +4,9 @@ import torch
 import numpy as np
 import pyttsx3
 from model import Network
+import time
 import threading
 from queue import Queue
-import time
 
 print("Packages imported...")
 
@@ -56,10 +56,6 @@ def capture_frames():
             break
 
 def process_frames():
-    last_label = None
-    label_stable_time = 0.5  # زمن ثبات الحرف قبل التبديل (نصف ثانية)
-    label_last_update_time = time.time()
-    
     while True:
         frame = frame_queue.get()
         if frame is None:
@@ -97,17 +93,11 @@ def process_frames():
             except Exception as e:
                 label = 'No Sign'
 
-            current_time = time.time()
-            if label != last_label:
-                if current_time - label_last_update_time >= label_stable_time:
-                    last_label = label
-                    label_last_update_time = current_time
-                    text_queue.put(label)
-            else:
-                label_last_update_time = current_time
-
             cv2.rectangle(frame, (x_min, y_min), (x_max, y_max), (0, 255, 0), 2)
-            cv2.putText(frame, last_label, (x_min, y_min - 10), cv2.FONT_HERSHEY_COMPLEX, 0.5, (0, 255, 0), 1)
+            cv2.putText(frame, label, (x_min, y_min - 10), cv2.FONT_HERSHEY_COMPLEX, 0.5, (0, 255, 0), 1)
+
+            if label != 'No Sign':
+                text_queue.put(label)
 
         output_queue.put(frame)
 
