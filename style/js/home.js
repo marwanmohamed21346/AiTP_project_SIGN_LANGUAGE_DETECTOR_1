@@ -1,11 +1,14 @@
-// const logo = document.querySelectorAll("#svg-about path");
+
+
+// const logo = document.querySelectorAll("#logo path");
 
 // for (let i = 0; i < logo.length; i++) {
 //     console.log(`Letter ${i} length is ${logo[i].getTotalLength()}`);
 // }
 
 
-// scroll trans
+
+// scroll anima
 ScrollReveal({ 
   // reset: true,
   distance: '60px',
@@ -19,10 +22,10 @@ ScrollReveal().reveal('.top', { delay: 250, origin: 'top', interval: 150});
 
 
 
-
-
-const logo = document.querySelectorAll("#logo path");
-
-for (let i = 0; i < logo.length; i++) {
-    console.log(`Letter ${i} length is ${logo[i].getTotalLength()}`);
-}
+// add class if scroll
+$(window).on( 'load', function() {
+	$(".loadding-page").delay(6000).fadeOut(200);
+	$(".cssload-box-loading").on('click', function() {
+	    $(".cssload-box-loading").fadeOut(200);
+	})
+})
