@@ -6,6 +6,20 @@
 // layout
 @use '../sass/layout/header';
 @use '../sass/layout/footer';
+@use '../sass/layout/loader';
 // page
 @use '../sass/pages/home';
 
+
+.content{
+    &.hidden {
+        display: none;
+    }
+    &.fade-in{
+        animation: fadeIn 2s ease-in;
+    }
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+}

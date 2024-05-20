@@ -166,6 +166,42 @@ nav svg path:nth-child(4) {
   }
 }
 
+.loader {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: black;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader svg path:nth-child(1) {
+  stroke-dasharray: 595;
+  stroke-dashoffset: 595;
+  animation: line-anim 2s ease forwards 1.7ms;
+}
+.loader svg path:nth-child(2) {
+  stroke-dasharray: 571;
+  stroke-dashoffset: 571;
+  animation: line-anim 2s ease forwards 2ms;
+}
+.loader svg path:nth-child(3) {
+  stroke-dasharray: 350;
+  stroke-dashoffset: 350;
+  animation: line-anim 2s ease forwards 2ms;
+}
+.loader svg path:nth-child(4) {
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  animation: line-anim 2s ease forwards 2ms;
+}
+@keyframes line-anim {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 .home {
   background-image: url(../img/home.jpg);
   background-repeat: no-repeat;
@@ -174,10 +210,6 @@ nav svg path:nth-child(4) {
   height: 100vh;
   width: 100%;
   position: relative;
-}
-.home .visible {
-  font-size: 50px;
-  transition: 10s;
 }
 .home .back-img {
   position: absolute;
@@ -219,4 +251,19 @@ nav svg path:nth-child(4) {
 }
 .home .container .con-text p {
   color: #565656;
+}
+
+.content.hidden {
+  display: none;
+}
+.content.fade-in {
+  animation: fadeIn 2s ease-in;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }/*# sourceMappingURL=main-page.css.map */
