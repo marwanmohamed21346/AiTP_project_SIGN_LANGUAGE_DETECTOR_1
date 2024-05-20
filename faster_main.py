@@ -1,6 +1,6 @@
 # <نسخة اسرع>
 # <يوجد خطا في ثبات ترجمة الاشارات>
-# <يوجد تاخر في نطق الترجمة مقارنة بسرعة معالجة الاشارات وطباعتها>
+# <يوجد تاخر في نطق الترجمة مقارنة بسرعة معالجة الاشارات وطباعتها> [تمت معالجته]
 
 import cv2
 import mediapipe as mp
@@ -8,9 +8,9 @@ import torch
 import numpy as np
 import pyttsx3
 from model import Network
-import time
 import threading
 from queue import Queue
+import time
 
 print("Packages imported...")
 
@@ -44,22 +44,28 @@ def Transform(image):
     image = np.expand_dims(image, axis=0)
     return torch.from_numpy(image).float().to(device)
 
-frame_queue = Queue()
-output_queue = Queue()
-text_queue = Queue()
+frame_queue = Queue(maxsize=1)
+output_queue = Queue(maxsize=1)
+text_queue = Queue(maxsize=1)
 
 engine = pyttsx3.init()
+engine.setProperty('rate', 125)  # تقليل سرعة الكلام
 
 def capture_frames():
     while True:
         ret, frame = cam.read()
         if not ret:
             break
-        frame_queue.put(frame)
+        if frame_queue.empty():
+            frame_queue.put(frame)
         if cv2.waitKey(1) & 0xff == 27:
             break
 
 def process_frames():
+    last_label = ""
+    label_duration = 0.2  # مدة عرض كل ترجمة بالثواني
+    last_time = time.time()
+
     while True:
         frame = frame_queue.get()
         if frame is None:
@@ -97,13 +103,17 @@ def process_frames():
             except Exception as e:
                 label = 'No Sign'
 
+            if label != last_label and time.time() - last_time >= label_duration:
+                last_label = label
+                last_time = time.time()
+                if text_queue.empty():
+                    text_queue.put(label)
+
             cv2.rectangle(frame, (x_min, y_min), (x_max, y_max), (0, 255, 0), 2)
-            cv2.putText(frame, label, (x_min, y_min - 10), cv2.FONT_HERSHEY_COMPLEX, 0.5, (0, 255, 0), 1)
+            cv2.putText(frame, last_label, (x_min, y_min - 10), cv2.FONT_HERSHEY_COMPLEX, 0.5, (0, 255, 0), 1)
 
-            if label != 'No Sign':
-                text_queue.put(label)
-
-        output_queue.put(frame)
+        if output_queue.empty():
+            output_queue.put(frame)
 
 def speak_text():
     while True:
