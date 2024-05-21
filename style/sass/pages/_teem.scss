@@ -1,0 +1,20 @@
+.teem {
+
+        .card
+        {
+            border-radius: 30px;
+            &:hover img {
+                transition: 1s;
+                transform: scale(1.1);
+    
+            }
+    
+            img {
+                height: 450px;
+                width: 100%;
+                border-radius: 30px;
+                transition: transform 0.3s;
+            }
+        }
+    }
+

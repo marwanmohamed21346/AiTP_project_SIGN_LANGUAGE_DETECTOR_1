@@ -9,17 +9,13 @@
 @use '../sass/layout/loader';
 // page
 @use '../sass/pages/home';
+@use '../sass/pages/work';
+@use '../sass/pages/teem';
 
+body {
+    overflow-x: hidden;
+}
 
-.content{
-    &.hidden {
-        display: none;
-    }
-    &.fade-in{
-        animation: fadeIn 2s ease-in;
-    }
-    @keyframes fadeIn {
-        0% { opacity: 0; }
-        100% { opacity: 1; }
-    }
+.content {
+    display: none;
 }
