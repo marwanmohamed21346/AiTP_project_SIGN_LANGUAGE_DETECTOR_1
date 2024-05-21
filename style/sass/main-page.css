@@ -303,6 +303,9 @@ nav svg path:nth-child(4) {
 .about {
   background: #191c2d;
 }
+.about p {
+  font-size: 1.1rem;
+}
 
 .work {
   background: #191c2d;
