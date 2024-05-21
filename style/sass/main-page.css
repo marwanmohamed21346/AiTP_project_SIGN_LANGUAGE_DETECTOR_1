@@ -265,7 +265,7 @@ nav svg path:nth-child(4) {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.8588235294);
+  background-color: rgba(0, 0, 0, 0.66);
 }
 .home .container .con-text h1 {
   color: #ffffff;
@@ -300,6 +300,13 @@ nav svg path:nth-child(4) {
   color: #565656;
 }
 
+.about {
+  background: #191c2d;
+}
+
+.work {
+  background: #191c2d;
+}
 .work .card {
   border-radius: 12px;
 }
@@ -312,6 +319,9 @@ nav svg path:nth-child(4) {
   border-radius: 12px;
 }
 
+.teem {
+  background: #191c2d;
+}
 .teem .card {
   border-radius: 30px;
 }

@@ -1,5 +1,6 @@
+@use '../helpers/variable' as *;
 .teem {
-
+    background: $color-bg;
         .card
         {
             border-radius: 30px;
