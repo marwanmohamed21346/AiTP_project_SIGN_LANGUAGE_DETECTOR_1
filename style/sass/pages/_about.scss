@@ -1,0 +1,7 @@
+@use '../helpers/variable' as *;
+.about{
+    background: $color-bg;
+    p{
+        font-size: 1.1rem;
+    }
+}
