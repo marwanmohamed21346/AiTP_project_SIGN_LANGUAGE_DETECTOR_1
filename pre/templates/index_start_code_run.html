@@ -51,7 +51,7 @@
                                     <h3>output</h3>
                                 </div>
                                 <div class="bg left">
-                                    <p class="pt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum autem illum impedit fuga amet, dicta voluptatibus facere vero tempore est!</p>
+                                    <p id="sentence" class="pt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum autem illum impedit fuga amet, dicta voluptatibus facere vero tempore est!</p>
                                 </div>
                             </div>
                             <div class="text-box">
@@ -59,7 +59,7 @@
                                     <h3>Speak!</h3>
                                 </div>
                                 <div class="bg right">
-                                    <p class="pt-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo provident, debitis odio doloribus laboriosam repudiandae, cupiditate, nobis eveniet voluptatum blanditiis iste voluptatem! Quo, asperiores facilis. Natus accusantium officia ut iste eum dicta in iusto necessitatibus cum, nihil repellendus minus alias aspernatur neque tempora illum dolorem dolor modi omnis expedita harum!</p>
+                                    <button onclick="trigger()">Trigger</button>
                                 </div>
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="tem col-lg-6 col-md-12 col-sm-12">
                     <div class="h-100 w-100 left">
-                        <img class="w-100 h-100" src="/style/img/home.jpg">
+                        <img class="w-100 h-100" src="/video_feed">
                     </div>
                 </div>
             </div>
@@ -75,7 +75,21 @@
 
     </div>
 
+    <script>
+        function trigger() {
+            fetch('/trigger').then(response => {
+                console.log('Triggered');
+            });
+        }
 
+        function updateSentence() {
+            fetch('/sentence').then(response => response.json()).then(data => {
+                document.getElementById('sentence').innerText = data;
+            });
+        }
+
+        setInterval(updateSentence, 1000);
+    </script>
     <!-- jq -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- link js home -->
