@@ -93,5 +93,5 @@ def load_model(model_path):
 
 
 if __name__ == '__main__':
-     model = load_model('./AITP_Training_code.pt')
+     model = load_model('model.pt')
      print(model.eval())

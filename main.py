@@ -1,23 +1,23 @@
-try:
-    import cv2
-    import mediapipe as mp
-    import torch
-    import pyttsx3
-    import numpy as np
-    from model import Network
-    from model import load_model
-    print("Packages imported...")
-except Exception as e:
-    print("error loading packages:",e)
+import cv2
+import mediapipe as mp
+import torch
+import pyttsx3
+import numpy as np
+from model import Network
+
+print("Packages imported...")
 
 try:
-    model_path = "Jo_elMofaker.pt"
-    model = Network()
-    print(model)
+    model_path = ""
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model = Network().to(device)
+    model.load_state_dict(torch.load(model_path, map_location=device))
     model.eval()
     print("Model loaded successfully")
 except Exception as e:
     print("Error loading model:", e)
+
+engine = pyttsx3.init()
 
 cam = cv2.VideoCapture(0)
 cam.set(3, 1280)  # Set width
@@ -53,7 +53,7 @@ signs = {
     '23': 'X',
     '24': 'Y',
     ' ' : 'NO sign'
-    }
+}
 
 def Transform(image):
     image = image / 255.0
@@ -100,22 +100,21 @@ while True:
         try:
             image = cv2.cvtColor(cropped_image, cv2.COLOR_BGR2GRAY)
             image = np.array(cv2.resize(image, (28, 28)))
-            print(image.shape)
+            print("Input image shape:", image.shape)
             image = Transform(image)
             with torch.no_grad():
                 prediction = model(image)
             prediction = torch.nn.functional.softmax(prediction, dim=1)
-            i = prediction.argmax(dim=-1).cuda()
-            print(i)
-            label = signs[str(i.item())]
+            predicted_class = prediction.argmax(dim=1).item()
+            label = signs.get(str(predicted_class), 'No Sign')
+            print("Predicted class:", predicted_class, "Label:", label)
         except Exception as e:
-            label = 'No Sign'
+            print("Error during inference:", e)
 
         cv2.rectangle(frame, (x_min, y_min), (x_max, y_max), (0, 255, 0), 2)
         cv2.putText(frame, label, (x_min, y_min - 10), cv2.FONT_HERSHEY_COMPLEX, 0.5, (0, 255, 0), 1)
         
         if label != 'No Sign':
-            engine = pyttsx3.init()
             engine.say(label)
             engine.runAndWait()
 
