@@ -191,6 +191,11 @@ nav svg path:nth-child(4) {
   }
 }
 
+footer {
+  box-shadow: 0 -1px 24px -6px black;
+  background-color: #191c2d;
+}
+
 .loader {
   height: 100vh;
   width: 100vw;

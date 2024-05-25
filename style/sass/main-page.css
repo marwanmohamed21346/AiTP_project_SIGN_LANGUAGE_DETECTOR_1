@@ -191,6 +191,11 @@ nav svg path:nth-child(4) {
   }
 }
 
+footer {
+  box-shadow: 0 -1px 24px -6px black;
+  background-color: #191c2d;
+}
+
 .loader {
   height: 100vh;
   width: 100vw;
@@ -229,6 +234,7 @@ nav svg path:nth-child(4) {
 }
 
 .home {
+  box-shadow: 0 2px 24px -6px black;
   background-image: url(../img/home.jpg);
   background-repeat: no-repeat;
   background-position: center;
@@ -291,6 +297,7 @@ nav svg path:nth-child(4) {
 }
 
 .features {
+  box-shadow: 1px 1px 39px -3px black;
   background: #191c2d;
 }
 .features h2 {

@@ -1,6 +1,7 @@
 @use '../helpers/variable' as *;
 
 .features {
+    box-shadow: 1px 1px 39px -3px black;
     background: $color-bg;
     h2{
         color: $color-blue;

@@ -1,7 +1,7 @@
 @use '../helpers/variable' as *;
 
 .home {
-
+    box-shadow: 0 2px 24px -6px black;
     background-image: url(../img/home.jpg);
     background-repeat: no-repeat;
     background-position: center;
