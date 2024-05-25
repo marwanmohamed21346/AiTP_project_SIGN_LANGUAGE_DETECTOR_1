@@ -228,76 +228,18 @@ nav svg path:nth-child(4) {
   }
 }
 
-.home {
-  background-image: url(../img/home.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 100vh;
-  width: 100%;
-  position: relative;
-}
-.home .back-img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+.learn_more {
+  min-height: calc(100vh + 200px);
+  background: #191c2d;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.66);
 }
-.home .container .con-text h1 {
-  color: #ffffff;
-  font-weight: 900;
-}
-@media (max-width: 377px) {
-  .home .container .con-text h1 {
-    font-size: 1.4rem;
-  }
-}
-.home .container .con-text span:nth-child(1) {
-  color: #3464da;
-  font-weight: 400;
-  font-size: 3rem;
-}
-.home .container .con-text span:nth-child(2) {
-  color: rgba(52, 99, 218, 0.7568627451);
-  font-weight: 400;
-  font-size: 3rem;
-}
-.home .container .con-text span:nth-child(3) {
-  color: rgba(52, 99, 218, 0.5176470588);
-  font-weight: 400;
-  font-size: 3rem;
-}
-.home .container .con-text .text-spn {
-  color: #3464da;
-  font-weight: 400;
-  font-family: fantasy;
-}
-.home .container .con-text p {
-  color: rgb(166, 165, 165);
-  font-weight: 400;
-}
-.home .container .con-text a {
-  fill: blue;
-}
-
-.about {
-  background: #191c2d;
-}
-.about p {
-  font-size: 1.1rem;
-}
-
-.features {
-  background: #191c2d;
-}
-.features h2 {
+.learn_more h2 {
   color: #3464da;
   font-weight: 900;
 }
-.features ul li::marker {
+.learn_more ul li::marker {
   font-size: 30px;
   font-weight: bold;
   color: #3464da;
@@ -305,27 +247,11 @@ nav svg path:nth-child(4) {
   margin-left: 0;
 }
 
-html {
+* {
   overflow-x: hidden;
 }
 
-.content .hidden {
-  display: none;
-}
-
-.fade-in {
-  animation: fadeIn 1s ease-in-out forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 .scrolled {
   background-color: rgba(0, 0, 0, 0.3137254902);
   transition: 1s;
-}/*# sourceMappingURL=main-page.css.map */
+}/*# sourceMappingURL=learn_more.css.map */

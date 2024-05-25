@@ -8,33 +8,10 @@
 @use '../sass/layout/footer';
 @use '../sass/layout/loader';
 // page
-@use '../sass/pages/home';
-@use '../sass/pages/about';
-@use '../sass/pages/features';
+@use '../sass/pages/learn_more';
 
-
-html {
+*{
     overflow-x: hidden;
-}
-
-.content {
-    .hidden {
-        display: none;
-    }
-
-}
-.fade-in {
-    animation: fadeIn 1s ease-in-out forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
 }
 .scrolled{
     background-color: #00000050;

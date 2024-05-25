@@ -1,14 +1,14 @@
 @use '../helpers/variable' as *;
 
 nav {
-    background-color: #00000050;
+    transition: 1s;
     a {
         text-decoration: none;
         color: $color-with;
-        transition: 1;
+        transition: .5s;
         &:hover{
             color: $color-blue;
-            transition: 1;
+            transition: .5s;
         }
     }
 
@@ -36,32 +36,6 @@ nav {
         @media (max-width:992px) {
             padding: 5px 0;
             margin: 0;
-
-            &::after,
-            &::before {
-                display: none;
-            }
-
-        }
-
-        &::after {
-            position: absolute;
-            content: "";
-            width: 1px;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-color: $color-with;
-        }
-
-        &::before {
-            position: absolute;
-            content: "";
-            width: 1px;
-            height: 100%;
-            top: 0;
-            left: 100%;
-            background-color: $color-with;
         }
     }
 
@@ -94,4 +68,6 @@ nav {
             stroke-dashoffset: 0;
         }
     }
+
+
 }

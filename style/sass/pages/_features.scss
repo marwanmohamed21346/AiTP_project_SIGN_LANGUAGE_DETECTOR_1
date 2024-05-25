@@ -1,0 +1,20 @@
+@use '../helpers/variable' as *;
+
+.features {
+    background: $color-bg;
+    h2{
+        color: $color-blue;
+        font-weight: 900;
+    }
+    ul {
+        li {
+            &::marker {
+                font-size: 30px;
+                font-weight: bold;
+                color: $color-blue;
+                padding-left: 0;
+                margin-left: 0;
+            }
+        }
+    }
+}

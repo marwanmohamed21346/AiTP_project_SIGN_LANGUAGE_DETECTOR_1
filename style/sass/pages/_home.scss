@@ -34,19 +34,19 @@
             }
 
             span:nth-child(1) {
-                color: #0035b9;
+                color: #3464da;
                 font-weight: 400;
                 font-size: 3rem;
             }
 
             span:nth-child(2) {
-                color: #0034b9ce;
+                color: #3463dac1;
                 font-weight: 400;
                 font-size: 3rem;
             }
 
             span:nth-child(3) {
-                color: #0034b97d;
+                color: #3463da84;
                 font-weight: 400;
                 font-size: 3rem;
             }
@@ -59,8 +59,14 @@
 
             p {
                 color: $color-grae;
+                font-weight: 400;
+            }
+
+            a {
+                fill: blue;
             }
         }
 
     }
+
 }

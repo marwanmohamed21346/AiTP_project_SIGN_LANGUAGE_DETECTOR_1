@@ -1,62 +1,51 @@
+@use '../helpers/variable' as *;
 .run-code {
     width: 100%;
     height: 100vh;
-    background-color: #c5def4;
+    background: $color-bg;
     overflow-x: hidden;
-    nav {
 
-        ul {
-            list-style: none;
-            li {
-                a {
-                    font-family: sans-serif;
-                    color: rgb(50, 78, 150);
-                    font-weight: 600;
-                }
+    .row {
+        .tem{
+            min-height: 100vh;
+        }
+        height: 100%;
+        h1 {
+            font-size: 40px;
+            color: $color-grae;
+            font-weight: bold;
+            @media (max-width:575px) {
+                font-size: 30px;
             }
         }
-    
-    }
-    .row {
-        height: 100%;
-
-        h2 {
-            font-size: 31px;
-            color: rgb(50, 78, 150);
-            font-weight: bold;
-        }
         span{
-            color: black;
+            color: $color-blue;
             font-family: cursive;
         }
-    }
-
-    .compon {
-
-        .col-6 {
-            display: grid;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .con {
-            background-color: rgb(50, 78, 150);
-            padding: 20px;
-            border-radius: 20px;
-            width: 7rem;
-            margin-top: 1rem;
-        }
-
-        h3 {
-            color: white;
+        h3{
+            font-size: 1.4rem;
+            color: $color-grae;
             font-weight: bold;
-            font-size: 20px;
         }
-    }
-
-    .con-video {
-        background-color: black;
-        width: 100%;
-        height: 100%;
+        p{
+            color: $color-grae;
+            font-weight: bold;
+        }
+        .bg{
+            background-color: $color-blue;
+            width: 14rem;
+            max-height: 12rem;
+            padding: 1rem;
+            margin: 10px 0;
+            border-radius: 8px;
+            overflow-y: scroll;
+            @media (max-width:575px) {
+                padding: .5rem .2rem;
+                width: 8rem;
+            }
+            &::-webkit-scrollbar{
+                width: 0;
+            } 
+        }
     }
 }
