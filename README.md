@@ -48,5 +48,7 @@ Dr/ Osama El Nahas
 Dr/ Hesham Ali 
 Dr/ Nehal El Azali
 
-
+screenshots:
+------------
+![Screenshot 2024-05-24 112634](https://github.com/marwanmohamed21346/AiTP_project_SIGN_LANGUAGE_DETECTOR_1/assets/138812463/1f8cf586-5194-4dc5-b6e8-6b62e79803c2)
 
