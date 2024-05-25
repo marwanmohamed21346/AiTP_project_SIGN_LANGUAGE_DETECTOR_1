@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- link css style -->
-    <link rel="stylesheet" href="style/sass/main-page.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sass/main-page.css') }}">
     <!-- like css normalize -->
-    <link rel="stylesheet" href="style/css/normalize.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
     <!-- like css bootstrap -->
-    <link rel="stylesheet" href="style/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style/css/bootstrap.min.css.map">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css.map') }}">
     <!-- icon -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <!-- scroll  -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <title>AITP</title>
+
 </head>
 
 <body>
@@ -78,19 +79,18 @@
                     <div class="">
                         <div class="con-text">
                             <h1 class="pb-3 pt-3 left">
-                                Welcome to AITP<span class="top">.</span><span class="top">.</span><span class="top">.</span><br> The Website Dedicated to
+                                Welcome to AITP<span class="top">.</span><span class="top">.</span><span
+                                    class="top">.</span><br> The Website Dedicated to
                                 <br>
                                 Translating
                                 <span class="text-spn">sign Language</span>
                                 <br> Into English Letters
                             </h1>
-                            <p class="left">To Learn more about the site the site click no <a
-                                    class="text-decoration-none" href="index_learn_more.html" target="_blank">Learn
-                                    More</a></p>
+                            <p class="left">To Learn more about the site the site click no <a class="text-decoration-none" href="{{ url_for('learn_more') }}" target="_blank">Learn More</a></p>
                         </div>
                         <div class="contaiern pt-5">
                             <div class="d-flex align-items-center justify-content-center">
-                                <button  id="navigateButton" class="left animated-button ms-3 me-3">
+                                <button id="navigateButton" class="left animated-button ms-3 me-3">
                                     <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
@@ -199,10 +199,11 @@
     <!-- jq -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- link js home -->
-    <script src="style/js/home.js"></script>
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
     <!-- link js bootstrap -->
-    <script src="style/js/bootstrap.bundle.min.js"></script>
-    <script src="style/js/bootstrap.bundle.min.js.map"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js.map') }}"></script>
+
 </body>
 
 </html>

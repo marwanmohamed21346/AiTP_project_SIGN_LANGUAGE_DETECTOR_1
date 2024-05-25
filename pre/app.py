@@ -1,4 +1,3 @@
-from model import Net
 from imutils.video import VideoStream
 from flask import Response, request, Flask, render_template, jsonify
 import threading
@@ -9,9 +8,10 @@ import numpy as np
 import torch
 from model import Net
 
-# تحميل النموذج المدرب
+# # تحميل النموذج المدرب
 model = torch.load('model_trained.pt')
 model.eval()
+
 
 # قاموس لتخزين الإشارات ومعانيها
 signs = {'0': 'A', '1': 'B', '2': 'C', '3': 'D', '4': 'E', '5': 'F', '6': 'G', '7': 'H', '8': 'I',
