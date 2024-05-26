@@ -1,5 +1,5 @@
 from imutils.video import VideoStream
-from flask import Response, request, Flask, render_template, jsonify
+from flask import Response, request, Flask, render_template, jsonify, send_from_directory
 import threading
 import argparse
 import time
@@ -8,15 +8,14 @@ import numpy as np
 import torch
 from model import Net
 
-# # تحميل النموذج المدرب
+# تحميل النموذج المدرب
 model = torch.load('model_trained.pt')
 model.eval()
-
 
 # قاموس لتخزين الإشارات ومعانيها
 signs = {'0': 'A', '1': 'B', '2': 'C', '3': 'D', '4': 'E', '5': 'F', '6': 'G', '7': 'H', '8': 'I',
         '10': 'K', '11': 'L', '12': 'M', '13': 'N', '14': 'O', '15': 'P', '16': 'Q', '17': 'R',
-        '18': 'S', '19': 'T', '20': 'U', '21': 'V', '22': 'W', '23': 'X', '24': 'Y' }
+        '18': 'S', '19': 'T', '20': 'U', '21': 'V', '22': 'W', '23': 'X', '24': 'Y'}
 
 # متغيرات عالمية
 outputFrame = None
@@ -27,6 +26,19 @@ text_suggestion = ''
 
 # إنشاء تطبيق Flask
 app = Flask(__name__)
+
+# تعريف مسار المجلد الرئيسي للملفات الثابتة
+app.static_folder = 'static'
+
+# تعريف مسار مجلد القوالب
+app.template_folder = 'templates'
+
+# تعريف مسارات المجلدات الفرعية
+app.config['STYLE_FOLDER'] = 'static/style'
+app.config['CSS_FOLDER'] = 'static/style/css'
+app.config['IMG_FOLDER'] = 'static/style/img'
+app.config['JS_FOLDER'] = 'static/style/js'
+app.config['SASS_FOLDER'] = 'static/style/sass'
 
 # بدء بث الفيديو من الكاميرا
 vc = VideoStream(src=0).start()
@@ -112,15 +124,15 @@ def generate():
 def index():
     return render_template("index.html")
 
-# مسار لعرض الصفحة الأولى
-@app.route("/page1")
-def page1():
-    return render_template("page1.html")
+# مسار لعرض صفحة "تعرف على المزيد"
+@app.route("/index_learn_more.html")
+def learn_more():
+    return render_template("index_learn_more.html")
 
-# مسار لعرض الصفحة الثانية
-@app.route("/page2")
-def page2():
-    return render_template("page2.html")
+# مسار لعرض صفحة "بدء تشغيل الكود"
+@app.route("/start_code_run")
+def start_code_run():
+    return render_template("index_start_code_run.html")
 
 # مسار لاستقبال الأحرف المقترحة
 @app.route('/char')
@@ -141,14 +153,33 @@ def trigger():
 # مسار لتوليد بث الفيديو
 @app.route("/video_feed")
 def video_feed():
-    return Response(generate(),
-                    mimetype="multipart/x-mixed-replace; boundary=frame")
+    return Response(generate(), mimetype="multipart/x-mixed-replace; boundary=frame")
 
 # مسار لإرسال الجملة الكاملة
 @app.route('/sentence')
 def sentence():
     global full_sentence
     return jsonify(full_sentence)
+
+# مسار لتحميل ملفات CSS
+@app.route("/css/<path:filename>")
+def css(filename):
+    return send_from_directory(app.config['CSS_FOLDER'], filename)
+
+# مسار لتحميل الصور
+@app.route("/img/<path:filename>")
+def img(filename):
+    return send_from_directory(app.config['IMG_FOLDER'], filename)
+
+# مسار لتحميل ملفات JavaScript
+@app.route("/js/<path:filename>")
+def js(filename):
+    return send_from_directory(app.config['JS_FOLDER'], filename)
+
+# مسار لتحميل ملفات SASS
+@app.route("/sass/<path:filename>")
+def sass(filename):
+    return send_from_directory(app.config['SASS_FOLDER'], filename)
 
 # بدء التطبيق
 if __name__ == '__main__':
@@ -163,6 +194,5 @@ if __name__ == '__main__':
     t.start()
 
     app.run(host='192.168.1.7', port=8080, debug=True, threaded=True, use_reloader=False)
-
 
 vc.stop()

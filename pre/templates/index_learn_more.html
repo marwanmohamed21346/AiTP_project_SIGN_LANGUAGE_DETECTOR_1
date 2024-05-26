@@ -5,19 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- link css style -->
-    <link rel="stylesheet" href="style/sass/learn_more.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sass/learn_more.css) }}">
     <!-- like css normalize -->
-    <link rel="stylesheet" href="style/css/normalize.css">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}"> -->
     <!-- like css bootstrap -->
-    <link rel="stylesheet" href="style/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style/css/bootstrap.min.css.map">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css.map') }}">
     <!-- icon -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-    <!-- slid show -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- scroll  -->
     <script src="https://unpkg.com/scrollreveal"></script>
-    <title>AITP</title>
+    <title>AITP-learn-more</title>
 </head>
 
 <body>
@@ -47,19 +45,24 @@
                         <div class="col-lg-6 col-md-12 col-sm-12">
                             <div class="text-white">
                                 <h2 class="pb-3 left">Project Features:</h2>
-                                <p class="left">it is a website dedicated to translating sign language into English letters</p>
+                                <p class="left">it is a website dedicated to translating sign language into English
+                                    letters</p>
                             </div>
                             <div class="text-white">
                                 <h2 class="pb-3 left">How to use?</h2>
-                                <p class="left">After pressing the get started button The site moves to the next page then the camera opens automatically then the user moves his hand to perform the movement that he wants to translate into English The output appears in the output box and pther suggestions appear in the suggestions box To convert the output into audible sound we press the Speak button .. </p>
+                                <p class="left">After pressing the get started button The site moves to the next page
+                                    then the camera opens automatically then the user moves his hand to perform the
+                                    movement that he wants to translate into English The output appears in the output
+                                    box and pther suggestions appear in the suggestions box To convert the output into
+                                    audible sound we press the Speak button .. </p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-12 col-sm-12 ">
                             <div class="pt-md-3 pt-sm-3 right">
-                                <img class="w-100 h-100 p-lg-0" src="style/img/home.jpg">
+                                <img class="w-100 h-100" src="{{ url_for('img', filename='home.jpg') }}" alt="Home Image">
                             </div>
                         </div>
-    
+
                     </div>
                 </div>
             </div>
@@ -69,13 +72,11 @@
 
     <!-- jq -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- slid show -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- link js home -->
-    <script src="style/js/home.js"></script>
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
     <!-- link js bootstrap -->
-    <script src="style/js/bootstrap.bundle.min.js"></script>
-    <script src="style/js/bootstrap.bundle.min.js.map"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js.map') }}"></script>
 </body>
 
 </html>
