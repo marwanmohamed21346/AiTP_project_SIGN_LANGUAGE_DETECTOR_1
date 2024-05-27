@@ -1,0 +1,73 @@
+@use '../helpers/variable' as *;
+
+nav {
+    transition: 1s;
+    a {
+        text-decoration: none;
+        color: $color-with;
+        transition: .5s;
+        &:hover{
+            color: $color-blue;
+            transition: .5s;
+        }
+    }
+
+    .navbar-toggler {
+        border: none;
+
+        &:focus {
+            box-shadow: none;
+        }
+
+        .box-icon-nav {
+            color: $color-with;
+        }
+    }
+
+    .logo {
+        font-size: 30px;
+    }
+
+    .center {
+        margin: 0 30px;
+        padding: 0 30px;
+        position: relative;
+
+        @media (max-width:992px) {
+            padding: 5px 0;
+            margin: 0;
+        }
+    }
+
+    svg path:nth-child(1) {
+        stroke-dasharray: 108;
+        stroke-dashoffset: 108;
+        animation: line-anim 2s ease forwards 1.7ms;
+    }
+
+    svg path:nth-child(2) {
+        stroke-dasharray: 106;
+        stroke-dashoffset: 106;
+        animation: line-anim 2s ease forwards 2ms;
+    }
+
+    svg path:nth-child(3) {
+        stroke-dasharray: 63;
+        stroke-dashoffset: 63;
+        animation: line-anim 2s ease forwards 2ms;
+    }
+
+    svg path:nth-child(4) {
+        stroke-dasharray: 125;
+        stroke-dashoffset: 125;
+        animation: line-anim 2s ease forwards 2ms;
+    }
+
+    @keyframes line-anim {
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+
+
+}

@@ -1,0 +1,19 @@
+@use './components/cord';
+@use '../sass/components/buttons';
+// helpers
+@use '../sass/helpers/variable';
+@use '../sass/helpers/anim';
+// layout
+@use '../sass/layout/header';
+@use '../sass/layout/footer';
+@use '../sass/layout/loader';
+// page
+@use '../sass/pages/learn_more';
+
+*{
+    overflow-x: hidden;
+}
+.scrolled{
+    background-color: #00000050;
+    transition: 1s;
+}

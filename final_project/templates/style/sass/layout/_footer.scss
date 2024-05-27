@@ -1,0 +1,5 @@
+@use '../helpers/variable' as *;
+footer{
+    box-shadow: 0 -1px 24px -6px black;
+    background-color: $color-bg;
+}

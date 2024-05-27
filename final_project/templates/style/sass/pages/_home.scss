@@ -1,0 +1,72 @@
+@use '../helpers/variable' as *;
+
+.home {
+    box-shadow: 0 2px 24px -6px black;
+    background-image: url(../img/home.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+
+    .back-img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(0 0 0 / 66%);
+
+    }
+
+    .container {
+        .con-text {
+
+            h1 {
+                color: $color-with;
+                font-weight: 900;
+
+                @media (max-width:377px) {
+                    font-size: 1.4rem;
+                }
+            }
+
+            span:nth-child(1) {
+                color: #3464da;
+                font-weight: 400;
+                font-size: 3rem;
+            }
+
+            span:nth-child(2) {
+                color: #3463dac1;
+                font-weight: 400;
+                font-size: 3rem;
+            }
+
+            span:nth-child(3) {
+                color: #3463da84;
+                font-weight: 400;
+                font-size: 3rem;
+            }
+
+            .text-spn {
+                color: $color-blue;
+                font-weight: 400;
+                font-family: fantasy;
+            }
+
+            p {
+                color: $color-grae;
+                font-weight: 400;
+            }
+
+            a {
+                fill: blue;
+            }
+        }
+
+    }
+
+}

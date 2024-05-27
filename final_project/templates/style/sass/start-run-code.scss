@@ -1,0 +1,22 @@
+// components
+@use './components/cord';
+@use '../sass/components/buttons';
+// helpers
+@use '../sass/helpers/variable';
+@use '../sass/helpers/anim';
+// layout
+@use '../sass/layout/header';
+@use '../sass/layout/footer';
+@use '../sass/layout/loader';
+// pages
+
+@use '../sass/pages/run-code';
+
+
+
+body {
+    height: 100vh;
+    width: 100%;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
