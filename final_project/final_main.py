@@ -1,6 +1,7 @@
 # authors: marwan mohamed / mariam ibrahim
+# لسماع صوت ترجمة الاشارة "s"
+# لايقاف البرنامج "q"
 
-# importing packages
 import numpy as np
 import cv2
 import torch
