@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- link css style -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='sass/main-page.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/sass/main-page.css') }}">
     <!-- like css normalize -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style/css/normalize.css') }}"> -->
     <!-- like css bootstrap -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css.map') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/css/bootstrap.min.css.map') }}">
     <!-- icon -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <!-- scroll  -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <title>AITP</title>
-
 </head>
+
 
 <body>
     <div class="loader">
@@ -86,7 +86,8 @@
                                 <span class="text-spn">sign Language</span>
                                 <br> Into English Letters
                             </h1>
-                            <p class="left">To Learn more about the site the site click no <a class="text-decoration-none" href="{{ url_for('learn_more') }}" target="_blank">Learn More</a></p>
+                            <p class="left">To Learn more about the site the site click no
+                                <a class="text-decoration-none" href="{{ url_for('learn_more') }}">Learn More</a></p>
                         </div>
                         <div class="contaiern pt-5">
                             <div class="d-flex align-items-center justify-content-center">
@@ -120,7 +121,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="pt-4 pb-4 left">
-                            <img class="w-100 h-100" src="style/img/home.jpg">
+                            <img class="w-100 h-100" src="{{ url_for('img', filename='home.jpg') }}" alt="Home Image">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12  d-flex justify-content-center align-items-center">
@@ -165,7 +166,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 d-flex align-items-center">
                         <div class=" right">
-                            <img class="w-100 h-100 pt-sm-5" src="style/img/home.jpg">
+                            <img class="w-100 h-100 pt-sm-5" src="{{ url_for('img', filename='home.jpg') }}">
                         </div>
                     </div>
 
@@ -199,10 +200,10 @@
     <!-- jq -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- link js home -->
-    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+    <script src="{{ url_for('static', filename='style/js/home.js') }}"></script>
     <!-- link js bootstrap -->
-    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js.map') }}"></script>
+    <script src="{{ url_for('static', filename='style/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='style/js/bootstrap.bundle.min.js.map') }}"></script>
 
 </body>
 

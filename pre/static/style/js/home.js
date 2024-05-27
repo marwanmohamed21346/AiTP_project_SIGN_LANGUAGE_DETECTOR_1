@@ -27,7 +27,7 @@ ScrollReveal().reveal(".top", { delay: 250, origin: "top", interval: 200 });
 
 // click btn home
 document.getElementById('navigateButton').addEventListener('click', function() {
-  window.location.href = '././index_start_code_run.html';
+  window.location.href = '/start_code_run';
 });
 
 // nav scroll
