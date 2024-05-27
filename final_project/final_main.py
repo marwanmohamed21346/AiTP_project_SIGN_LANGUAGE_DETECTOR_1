@@ -1,4 +1,5 @@
 # authors: marwan mohamed / mariam ibrahim
+
 # لسماع صوت ترجمة الاشارة "s"
 # لايقاف البرنامج "q"
 
