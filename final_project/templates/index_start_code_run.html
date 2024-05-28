@@ -16,6 +16,7 @@
     <!-- scroll  -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <title>AITP</title>
+
 </head>
 
 <body>
@@ -76,19 +77,7 @@
     </div>
 
     <script>
-        function trigger() {
-            fetch('/trigger').then(response => {
-                console.log('Triggered');
-            });
-        }
 
-        function updateSentence() {
-            fetch('/sentence').then(response => response.json()).then(data => {
-                document.getElementById('sentence').innerText = data;
-            });
-        }
-
-        setInterval(updateSentence, 1000);
     </script>
     <!-- jq -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

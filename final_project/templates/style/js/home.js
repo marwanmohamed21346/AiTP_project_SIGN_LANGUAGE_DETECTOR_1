@@ -42,5 +42,17 @@ window.addEventListener('scroll', function() {
 });
 
 
-// flask img
+// flask test
+function trigger() {
+  fetch('/trigger').then(response => {
+      console.log('Triggered');
+  });
+}
 
+function updateSentence() {
+  fetch('/sentence').then(response => response.json()).then(data => {
+      document.getElementById('sentence').innerText = data;
+  });
+}
+
+setInterval(updateSentence, 1000);
